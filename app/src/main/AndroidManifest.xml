@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_WallPaper_Changer">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.apply.ApplyActivity"></activity>
+        <activity android:name=".view.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
