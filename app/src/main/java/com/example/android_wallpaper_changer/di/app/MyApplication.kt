@@ -1,6 +1,8 @@
 package com.example.android_wallpaper_changer.di.app
 
 import android.app.Application
+import com.example.android_wallpaper_changer.di.module.activityModule
+import com.example.android_wallpaper_changer.di.module.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -12,6 +14,8 @@ class MyApplication: Application() {
         startKoin {
             androidContext(this@MyApplication)
             modules(
+                activityModule,
+                repositoryModule
             )
         }
     }
