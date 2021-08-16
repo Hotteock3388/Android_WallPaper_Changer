@@ -26,6 +26,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel.applyIntent = Intent(this, ApplyActivity::class.java)
+
         viewModel.galleryIntent.observe(this, {
             startActivityForResult(Intent.createChooser(viewModel.galleryIntent.value, "배경화면 선택"), 14423)
         })

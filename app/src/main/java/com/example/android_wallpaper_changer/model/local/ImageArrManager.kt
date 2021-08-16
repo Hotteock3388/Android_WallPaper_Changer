@@ -9,6 +9,6 @@ object ImageArrManager {
 
     var selectedImageArr = ArrayList<Bitmap>()
 
-    var processedImageArr = ArrayList<Bitmap>()
+    //var processedImageArr = ArrayList<Bitmap>()
 
 }

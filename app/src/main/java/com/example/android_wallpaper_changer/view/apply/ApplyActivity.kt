@@ -18,6 +18,8 @@ class ApplyActivity : BaseActivity<ActivityApplyBinding, ApplyViewModel>(R.layou
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel.selectedImageArrayList = intent.getParcelableArrayListExtra<Bitmap>("SelectedImageArr") as ArrayList<Bitmap>
+
         //RecyclerView Adapter 초기화
         viewModel.adapter.also {
             binding.viewPager2ApplyActivity.adapter = it
@@ -25,28 +27,45 @@ class ApplyActivity : BaseActivity<ActivityApplyBinding, ApplyViewModel>(R.layou
 
         //적용 완료 or 취소
         viewModel.fin.observe(this, {
-
-            val arr = ArrayList<Bitmap>()
-            showLog("${ImageArrManager.selectedImageArr.size}")
-            ImageArrManager.processedImageArr.clear()
-
-            for(i in 0 until ImageArrManager.selectedImageArr.size){
-                with(binding.imageViewProcessApplyActivity){
-                    setImageBitmap(ImageArrManager.selectedImageArr[i])
-                    buildDrawingCache()
-                    isDrawingCacheEnabled = true
-                    ImageArrManager.processedImageArr.add(Bitmap.createBitmap(drawingCache))
-                }
-            }
-
-            SharedPref(baseContext).saveBitmapImageArr(ImageArrManager.processedImageArr)
-            //arr.add(binding.viewPager2ApplyActivity.get(i).imageView_ViewPagerItem.getDrawingCache(false))
-            ImageArrManager.imageArr.value = ImageArrManager.processedImageArr
+            showLog("${viewModel.selectedImageArrayList.size}")
             gotoMainActivity(it)
         })
+        
+    }
 
+    fun process() {
+        with(binding.imageViewProcessApplyActivity){
+
+            viewModel.selectedImageArrayList.clear()
+
+            for(i in 0 until viewModel.selectedImageArrayList.size){
+                setImageBitmap(viewModel.selectedImageArrayList[i])
+                buildDrawingCache()
+                isDrawingCacheEnabled = true
+                viewModel.processedImageArr.add(android.graphics.Bitmap.createBitmap(drawingCache))
+            }
+
+        }
+    }
+
+    fun processImageArr(){
+        val processedImageArr = ArrayList<Bitmap>()
+
+        for(i in 0 until viewModel.selectedImageArrayList.size){
+            with(binding.imageViewProcessApplyActivity){
+                setImageBitmap(viewModel.selectedImageArrayList[i])
+                buildDrawingCache()
+                isDrawingCacheEnabled = true
+                processedImageArr.add(Bitmap.createBitmap(drawingCache))
+            }
+        }
+
+        SharedPref(baseContext).saveBitmapImageArr(processedImageArr)
+        //arr.add(binding.viewPager2ApplyActivity.get(i).imageView_ViewPagerItem.getDrawingCache(false))
+        ImageArrManager.imageArr.value = processedImageArr
 
     }
+
 
     private fun gotoMainActivity(msg: String){
         showToast(msg)
