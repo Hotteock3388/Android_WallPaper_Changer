@@ -23,6 +23,7 @@ class MainViewModel: BaseViewModel() {
 
     var galleryIntent = MutableLiveData<Intent>()
 
+    lateinit var applyIntent: Intent
 
     init {
         vpPosition.value = 0
@@ -73,7 +74,10 @@ class MainViewModel: BaseViewModel() {
             }
         }
 
-        ImageArrManager.selectedImageArr = bitmapArr
+        //ImageArrManager.selectedImageArr = bitmapArr
+
+        applyIntent.putExtra("SelectedImageArr", bitmapArr)
+
 
         saveComplete.value = Unit
     }

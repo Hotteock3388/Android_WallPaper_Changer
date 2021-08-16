@@ -36,6 +36,11 @@ class ImageRepository(private val context: Context) : KoinComponent {
         sharedPref.saveBitmapImageArr(arr)
     }
 
+    fun saveProcessImageToSharedPref(arr: ArrayList<Bitmap>){
+        sharedPref.saveBitmapImageArr(arr)
+        ImageArrManager.imageArr.value = arr
+    }
+
     private fun createDummyData(): ArrayList<Bitmap> {
         return arrayListOf(
                 BitmapFactory.decodeResource(context.resources, R.drawable.afternoon),
