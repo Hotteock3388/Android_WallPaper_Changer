@@ -19,6 +19,7 @@ class ChangeWallPaperService : Service() {
     private lateinit var mReceiver: CustomReceiver
     private val CHANNEL_ID = "Android_WallPaper_Changer"
     private val FOREGROUND_ID = 1248295
+
     private lateinit var sharedPref: SharedPref
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -27,14 +28,8 @@ class ChangeWallPaperService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.d("TestLog", "onCreate")
-        mReceiver = CustomReceiver()
-
         sharedPref = SharedPref(applicationContext)
-
-        val filter = IntentFilter(Intent.ACTION_SCREEN_OFF)
-
-        registerReceiver(mReceiver, filter)
+        startForegroundService()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -43,14 +38,14 @@ class ChangeWallPaperService : Service() {
         Log.d("TestLog", "onStartCommand")
         rotateWallPaper()
 
-        startForegroundService()
         return START_STICKY
     }
 
     private fun rotateWallPaper(){
         Log.d("TestLog", "rotateWallPaper")
         var i = 0
-        val thread = Thread(Runnable{
+
+        Thread(Runnable{
             while (true){
                 if(sharedPref.isExist(sharedPref.getKey(i))){
                     //wallpaperManager.setBitmap(sharedPref.getImageArr(applicationContext)[++i %6])
@@ -69,12 +64,9 @@ class ChangeWallPaperService : Service() {
                     i = 0
                 }
             }
-        })
-        thread.start()
+        }).start()
 
     }
-
-
 
     private fun startForegroundService(){
         Log.d("TestLog", "startForegroundService")
@@ -94,21 +86,13 @@ class ChangeWallPaperService : Service() {
             manager.createNotificationChannel(NotificationChannel(CHANNEL_ID, "기본 채널", NotificationManager.IMPORTANCE_DEFAULT))
         }
 
-        if(!isServiceRunning(ChangeWallPaperService::class.java)){
-            startForegroundService(Intent(this, CustomService::class.java))
-            //startForeground(FOREGROUND_ID, builder.build())
-        }
-    }
+            Log.d("TestLog", "StartForeground")
+            startForeground(FOREGROUND_ID, builder.build())
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (mReceiver != null) {
-            unregisterReceiver(mReceiver)
-        }
     }
 
     //서비스가 이미 실행중인지 확인
-    fun Context.isServiceRunning(serviceClass: Class<*>): Boolean {
+    private fun Context.isServiceRunning(serviceClass: Class<*>): Boolean {
         val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
         for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {

@@ -9,10 +9,10 @@ import androidx.core.content.ContextCompat.startForegroundService
 
 class CustomReceiver: BroadcastReceiver(){
     override fun onReceive(context: Context, intent: Intent) {
-        Log.d("TestLog", "${intent.action}")
 
+        //휴대폰 전원이 켜지면 실행
         if (intent.action.equals(Intent.ACTION_BOOT_COMPLETED)) {
-            Log.d("TestLog", "boot complete received")
+            //Log.d("TestLog", "boot complete received")
             startService(context)
         }
     }
