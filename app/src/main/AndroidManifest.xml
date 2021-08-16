@@ -31,11 +31,6 @@
             android:enabled="true"
             android:exported="false" />
 
-        <service
-            android:name=".service.CustomService"
-            android:enabled="true"
-            android:exported="false" />
-
         <receiver
             android:name=".service.CustomReceiver"
             android:enabled="true"

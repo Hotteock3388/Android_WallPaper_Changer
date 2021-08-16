@@ -30,12 +30,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
             startActivityForResult(Intent.createChooser(viewModel.galleryIntent.value, "배경화면 선택"), 14423)
         })
 
-        viewModel.startServiceCLick.observe(this, {
-            if(!baseContext.isServiceRunning(ChangeWallPaperService::class.java)){
-                ContextCompat.startForegroundService(this, Intent(this, ChangeWallPaperService::class.java))
-            }
-        })
-
         viewModel.saveComplete.observe(this, {
             startActivity(Intent(this, ApplyActivity::class.java))
         })

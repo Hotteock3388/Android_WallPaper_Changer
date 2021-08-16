@@ -15,18 +15,12 @@ class MainViewModel: BaseViewModel() {
 
     var vpPosition = MutableLiveData<Int>()
 
-    var startServiceCLick = MutableLiveData<Unit>()
-
     var saveComplete = MutableLiveData<Unit>()
 
     var galleryIntent = MutableLiveData<Intent>()
 
     init {
         vpPosition.value = 0
-    }
-
-    fun startService(){
-        startServiceCLick.value = Unit
     }
 
     fun selectImagesFromMyGallery(){
