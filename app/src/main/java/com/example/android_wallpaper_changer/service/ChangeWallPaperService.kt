@@ -34,12 +34,11 @@ class ChangeWallPaperService : Service() {
 
         val filter = IntentFilter(Intent.ACTION_SCREEN_OFF)
 
-        //registerReceiver(mReceiver, filter)
+        registerReceiver(mReceiver, filter)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        //repeatLog()
 
         Log.d("TestLog", "onStartCommand")
         rotateWallPaper()
@@ -53,7 +52,7 @@ class ChangeWallPaperService : Service() {
         var i = 0
         val thread = Thread(Runnable{
             while (true){
-                if(sharedPref.isExist("ImageBitmap1")){
+                if(sharedPref.isExist(sharedPref.getKey(i))){
                     //wallpaperManager.setBitmap(sharedPref.getImageArr(applicationContext)[++i %6])
                     WallpaperManager.getInstance(applicationContext).setBitmap(sharedPref.getImage(i++))
 
@@ -62,18 +61,20 @@ class ChangeWallPaperService : Service() {
                     //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_LOCK)
                     Log.d("TestLog", "rotate!")
 
-                    if(i == ImageArrManager.imageArr.value!!.size)
-                        i = 0
                     //10분마다 배경화면 변경
                     //Test 중 10초마다 변경
                     sleep(10000)
 
+                }else {
+                    i = 0
                 }
             }
         })
         thread.start()
 
     }
+
+
 
     private fun startForegroundService(){
         Log.d("TestLog", "startForegroundService")
@@ -93,7 +94,10 @@ class ChangeWallPaperService : Service() {
             manager.createNotificationChannel(NotificationChannel(CHANNEL_ID, "기본 채널", NotificationManager.IMPORTANCE_DEFAULT))
         }
 
-        startForeground(FOREGROUND_ID, builder.build())
+        if(!isServiceRunning(ChangeWallPaperService::class.java)){
+            startForegroundService(Intent(this, CustomService::class.java))
+            //startForeground(FOREGROUND_ID, builder.build())
+        }
     }
 
     override fun onDestroy() {

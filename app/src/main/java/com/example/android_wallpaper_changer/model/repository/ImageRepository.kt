@@ -38,7 +38,7 @@ class ImageRepository(private val context: Context) : KoinComponent {
 
     fun saveProcessImageToSharedPref(arr: ArrayList<Bitmap>){
         sharedPref.saveBitmapImageArr(arr)
-        ImageArrManager.imageArr.value = arr
+        ImageArrManager.imageArr.postValue(arr)
     }
 
     private fun createDummyData(): ArrayList<Bitmap> {

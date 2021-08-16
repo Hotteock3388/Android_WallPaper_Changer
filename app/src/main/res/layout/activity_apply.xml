@@ -16,16 +16,6 @@
         android:layout_height="match_parent"
         android:background="@drawable/back"
         tools:context=".view.apply.ApplyActivity">
-        <ImageView
-            android:id="@+id/imageView_Process_ApplyActivity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            android:background="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/viewPager2_ApplyActivity"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2_ApplyActivity"

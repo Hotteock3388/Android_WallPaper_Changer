@@ -23,7 +23,7 @@ val activityModule = module {
     }
 
     viewModel {
-        LoadingViewModel()
+        LoadingViewModel(get())
     }
 
 }

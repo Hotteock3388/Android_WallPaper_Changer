@@ -14,19 +14,14 @@ class SharedPref(val context: Context) {
         getPref(context).edit().let {
             for(i in 0 until arr.size){
                 it.putString(getKey(i), myUtil.bitmapToString(arr[i]))
-                idx = i
             }
-            removePrevImage(++idx)
+            removePrevImage(arr.size)
 
             it.apply()
         }
     }
 
-    private fun test(){
-
-    }
-
-    //테스트 전용 메서드
+    //
     private fun removePrevImage(i: Int){
         if(isExist(getKey(i))){
             getPref(context).edit().let {
@@ -38,7 +33,7 @@ class SharedPref(val context: Context) {
     }
 
     //계속 "ImageBitmap$i" 중복되는게 너무 꼴뵈기 싫어서 만든 메서드
-    private fun getKey(idx: Int): String {
+    fun getKey(idx: Int): String {
         return "ImageBitmap$idx"
     }
 

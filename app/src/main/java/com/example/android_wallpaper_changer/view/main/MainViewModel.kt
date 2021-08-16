@@ -13,8 +13,6 @@ class MainViewModel: BaseViewModel() {
 
     var adapter = MyAdapter(ImageArrManager.imageArr.value!!)
 
-    var imageSettingButtonClick = MutableLiveData<Unit>()
-
     var vpPosition = MutableLiveData<Int>()
 
     var startServiceCLick = MutableLiveData<Unit>()
@@ -22,8 +20,6 @@ class MainViewModel: BaseViewModel() {
     var saveComplete = MutableLiveData<Unit>()
 
     var galleryIntent = MutableLiveData<Intent>()
-
-    lateinit var applyIntent: Intent
 
     init {
         vpPosition.value = 0
@@ -54,17 +50,6 @@ class MainViewModel: BaseViewModel() {
         }
     }
 
-    fun openGallery(){
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = MediaStore.Images.Media.CONTENT_TYPE
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-
-        galleryIntent.value = intent
-        //galleryIntent.value = Intent.createChooser(galleryIntent.value, "배경화면 선택", )
-
-    }
-
     fun saveSelectedImage(contentResolver: ContentResolver, data: Intent?){
         val bitmapArr = ArrayList<Bitmap>()
 
@@ -76,8 +61,8 @@ class MainViewModel: BaseViewModel() {
 
         //ImageArrManager.selectedImageArr = bitmapArr
 
-        applyIntent.putExtra("SelectedImageArr", bitmapArr)
-
+        //applyIntent.putExtra("SelectedImageArr", bitmapArr)
+        ImageArrManager.selectedImageArr = bitmapArr
 
         saveComplete.value = Unit
     }

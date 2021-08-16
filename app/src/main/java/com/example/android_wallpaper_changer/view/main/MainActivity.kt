@@ -26,8 +26,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.applyIntent = Intent(this, ApplyActivity::class.java)
-
         viewModel.galleryIntent.observe(this, {
             startActivityForResult(Intent.createChooser(viewModel.galleryIntent.value, "배경화면 선택"), 14423)
         })
@@ -53,7 +51,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode == RESULT_OK){
-            viewModel.saveSelectedImage(contentResolver ,data)
+            if (data != null) {
+                if(data.clipData != null && data.clipData!!.itemCount != 1){ //사진을 여러 장 골라서 잘 작동 할 경우
+                    viewModel.saveSelectedImage(contentResolver ,data)
+                }
+                else{ // 사진을 한 장만 골랐을 경우
+                    showToast("사진을 여러 장 선택해주세요!")
+                }
+            }
+            else{ // 사진을 아예 안 골랐을 경우?
+                showToast("취소")
+            }
         }
     }
 
