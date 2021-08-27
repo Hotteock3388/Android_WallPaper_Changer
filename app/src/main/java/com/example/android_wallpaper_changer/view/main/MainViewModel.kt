@@ -7,11 +7,11 @@ import android.provider.MediaStore
 import androidx.lifecycle.MutableLiveData
 import com.example.android_wallpaper_changer.base.BaseViewModel
 import com.example.android_wallpaper_changer.model.local.ImageArrManager
-import com.example.android_wallpaper_changer.view.adapter.MyAdapter
+import com.example.android_wallpaper_changer.view.adapter.ViewPagerAdapter
 
 class MainViewModel: BaseViewModel() {
 
-    var adapter = MyAdapter(ImageArrManager.imageArr.value!!)
+    var adapter = ViewPagerAdapter(ImageArrManager.imageArr.value!!)
 
     var vpPosition = MutableLiveData<Int>()
 

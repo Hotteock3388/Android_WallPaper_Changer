@@ -46,23 +46,25 @@
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView style="@style/ClickableItem"
+        <ImageView
             android:id="@+id/leftArrow_MainActivity"
+            style="@style/ClickableItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_left"
             android:onClick="@{() -> vm.vpPrevPage()}"
+            android:src="@drawable/ic_left"
             app:layout_constraintBottom_toBottomOf="@+id/viewPager_MainActivity"
             app:layout_constraintEnd_toStartOf="@+id/viewPager_MainActivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/viewPager_MainActivity" />
 
-        <ImageView style="@style/ClickableItem"
+        <ImageView
             android:id="@+id/rightArrow_MainActivity"
+            style="@style/ClickableItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_right"
             android:onClick="@{() -> vm.vpNextPage()}"
+            android:src="@drawable/ic_right"
             app:layout_constraintBottom_toBottomOf="@+id/viewPager_MainActivity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/viewPager_MainActivity"
@@ -82,24 +84,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <ImageView style="@style/ClickableItem"
+        <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:src="@drawable/ic_bottom"
-            android:onClick="@{() -> vm.startService()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView style="@style/ClickableItem"
+        <ImageView
             android:id="@+id/fab_MainActivity"
+            style="@style/ClickableItem"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="15dp"
-            android:src="@drawable/ic_fab"
             android:foreground="@drawable/fab_click_effect_circle"
             android:onClick="@{() -> vm.selectImagesFromMyGallery()}"
+            android:src="@drawable/ic_fab"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

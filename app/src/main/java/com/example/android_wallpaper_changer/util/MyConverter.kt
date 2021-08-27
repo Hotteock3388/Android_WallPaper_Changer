@@ -8,7 +8,7 @@ import android.provider.MediaStore
 import android.util.Base64
 import java.io.ByteArrayOutputStream
 
-class MyUtil {
+class MyConverter {
 
     fun uriToBitmap(context: Context, imageFile: Uri): Bitmap? {
         return MediaStore.Images.Media.getBitmap(context.contentResolver, imageFile)
@@ -30,4 +30,5 @@ class MyUtil {
         val bytes: ByteArray = baos.toByteArray()
         return Base64.encodeToString(bytes, Base64.DEFAULT)
     }
+    
 }

@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_wallpaper_changer.R
 
-class MyAdapter(private val dataList: ArrayList<Bitmap>): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class ViewPagerAdapter(private val dataList: ArrayList<Bitmap>): RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return dataList.size

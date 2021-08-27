@@ -1,15 +1,13 @@
 package com.example.android_wallpaper_changer.view.apply
 
-import android.graphics.Bitmap
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.android_wallpaper_changer.base.BaseViewModel
 import com.example.android_wallpaper_changer.model.local.ImageArrManager
-import com.example.android_wallpaper_changer.view.adapter.MyAdapter
+import com.example.android_wallpaper_changer.view.adapter.ViewPagerAdapter
 
 class ApplyViewModel(): BaseViewModel() {
 
-    var adapter = MyAdapter(ImageArrManager.selectedImageArr)
+    var adapter = ViewPagerAdapter(ImageArrManager.selectedImageArr)
 
     val apply = MutableLiveData<Unit>()
 

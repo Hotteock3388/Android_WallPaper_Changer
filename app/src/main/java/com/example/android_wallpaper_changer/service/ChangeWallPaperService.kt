@@ -57,8 +57,8 @@ class ChangeWallPaperService : Service() {
                     Log.d("TestLog", "rotate!")
 
                     //10분마다 배경화면 변경
-                    //Test 중 10초마다 변경
-                    sleep(10000)
+                    //Test 중 30초마다 변경
+                    sleep(30000)
 
                 }else {
                     i = 0

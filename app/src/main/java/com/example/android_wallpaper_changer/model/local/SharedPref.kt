@@ -3,11 +3,11 @@ package com.example.android_wallpaper_changer.model.local
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Bitmap
-import com.example.android_wallpaper_changer.util.MyUtil
+import com.example.android_wallpaper_changer.util.MyConverter
 
 class SharedPref(val context: Context) {
 
-    val myUtil = MyUtil()
+    val myUtil = MyConverter()
 
     fun saveBitmapImageArr(arr: ArrayList<Bitmap>){
         var idx = 0
