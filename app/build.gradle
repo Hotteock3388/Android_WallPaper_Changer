@@ -2,14 +2,15 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.android_wallpaper_changer"
+        applicationId "com.depotato.android_wallpaper_changer"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
@@ -31,9 +32,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    dataBinding {
-        enabled true
+    buildFeatures{
+        dataBinding true
     }
 }
 
@@ -68,6 +68,12 @@ dependencies {
     // Lottie Animation
     implementation "com.airbnb.android:lottie:3.4.1"
 
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    //firebase crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics'
+    //firebase analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

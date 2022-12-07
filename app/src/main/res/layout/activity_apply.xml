@@ -8,7 +8,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.android_wallpaper_changer.view.apply.ApplyViewModel" />
+            type="com.depotato.android_wallpaper_changer.view.apply.ApplyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

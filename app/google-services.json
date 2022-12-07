@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158468059381",
+    "project_id": "test-ac5ee",
+    "storage_bucket": "test-ac5ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158468059381:android:eff11cc510a124decbd5bc",
+        "android_client_info": {
+          "package_name": "com.depotato.android_wallpaper_changer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158468059381-ojii5dnfn21rftubd85n83i4ak8406i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvHNENFd9M8xceWvm1ISO5b5ThBFDvW_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158468059381-ojii5dnfn21rftubd85n83i4ak8406i8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

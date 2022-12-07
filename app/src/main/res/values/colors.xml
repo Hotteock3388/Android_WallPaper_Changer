@@ -13,6 +13,8 @@
     <color name="colorPrimaryDark">#b3abe0</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="mainPurple">#B4ACE2</color>
+
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="grayCFCF">#CFCFCF</color>
