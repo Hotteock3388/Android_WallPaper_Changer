@@ -25,9 +25,12 @@ class MyUtil {
     }
 
     fun bitmapToString(bitmap: Bitmap): String? {
-        val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 70, baos)
-        val bytes: ByteArray = baos.toByteArray()
-        return Base64.encodeToString(bytes, Base64.DEFAULT)
+        ByteArrayOutputStream().let { baos ->
+            bitmap.compress(Bitmap.CompressFormat.PNG, 70, baos)
+            val bytes: ByteArray = baos.toByteArray()
+            return Base64.encodeToString(bytes, Base64.DEFAULT)
+        }
     }
+
+
 }

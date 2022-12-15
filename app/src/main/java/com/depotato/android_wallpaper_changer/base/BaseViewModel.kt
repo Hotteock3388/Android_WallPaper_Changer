@@ -6,13 +6,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 
-open class BaseViewModel: ViewModel() {
+open class BaseViewModel(
+    private val className: String
+): ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
     fun addDisposable(disposable: Disposable) = compositeDisposable.add(disposable)
 
-    fun showLog(msg: String) = Log.d("TestLog", msg)
+    fun showLog(msg: String) = Log.d("TestLog_$className", msg)
 
     override fun onCleared() {
         super.onCleared()

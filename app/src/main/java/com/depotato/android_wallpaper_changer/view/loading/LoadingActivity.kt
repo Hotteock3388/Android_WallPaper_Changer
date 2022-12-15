@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
 import com.depotato.android_wallpaper_changer.R
+import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityLoadingBinding
 import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.service.ChangeWallPaperService
@@ -18,21 +19,21 @@ import org.koin.ext.getScopeName
 import kotlin.system.measureNanoTime
 
 
-class LoadingActivity : com.depotato.android_wallpaper_changer.base.BaseActivity<ActivityLoadingBinding, LoadingViewModel>(R.layout.activity_loading) {
+class LoadingActivity : BaseActivity<ActivityLoadingBinding, LoadingViewModel>(R.layout.activity_loading, "LoadingActivity") {
 
     override val viewModel: LoadingViewModel by viewModel()
 
-    var create = false
+    var imageProcessing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.processedImageArrayList.observe(this, {
+        viewModel.processedImageArrayList.observe(this) {
             BackTask(viewModel).execute()
-        })
+        }
 
-        viewModel.saveComplete.observe(this, {
-            if(!isServiceRunning2()){
+        viewModel.saveComplete.observe(this) {
+            if (!isServiceRunning2()) {
                 ContextCompat.startForegroundService(
                     binding.root.context,
                     Intent(binding.root.context, ChangeWallPaperService::class.java)
@@ -41,18 +42,19 @@ class LoadingActivity : com.depotato.android_wallpaper_changer.base.BaseActivity
             startActivity(Intent(this, MainActivity::class.java))
             showToast("적용 완료!")
             finish()
-        })
+        }
 
         binding.lottieAnimationView.playAnimation()
 
         binding.lottieAnimationView.addAnimatorUpdateListener {
-            if(!create){
+            if(!imageProcessing){
                 processImageArr()
-                create = true
+                imageProcessing = true
             }
-
         }
+
     }
+
     private fun isServiceRunning2(): Boolean{
         val manager: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
@@ -63,7 +65,6 @@ class LoadingActivity : com.depotato.android_wallpaper_changer.base.BaseActivity
             if(service.service.className == "ChangeWallPaperService"){
                 showLog("serviceClassName = ${service.service.className}")
                 return true
-
             }
         }
         return false
@@ -110,12 +111,8 @@ class LoadingActivity : com.depotato.android_wallpaper_changer.base.BaseActivity
 class BackTask(private val viewModel:LoadingViewModel) : AsyncTask<Int, Int, Int>() {
 
     override fun doInBackground(vararg params: Int?): Int {
-
         viewModel.saveProcessedImageArrayList()
-
         return 0
     }
-
-
 
 }

@@ -7,26 +7,26 @@ import com.depotato.android_wallpaper_changer.util.MyUtil
 
 class SharedPref(val context: Context) {
 
-    val myUtil = MyUtil()
+    private val myUtil = MyUtil()
 
     fun saveBitmapImageArr(arr: ArrayList<Bitmap>){
         var idx = 0
-        getPref(context).edit().let {
+        getPref(context).edit().run {
             for(i in 0 until arr.size){
-                it.putString(getKey(i), myUtil.bitmapToString(arr[i]))
+                putString(getKey(i), myUtil.bitmapToString(arr[i]))
             }
             removePrevImage(arr.size)
 
-            it.apply()
+            apply()
         }
     }
 
     //
     private fun removePrevImage(i: Int){
         if(isExist(getKey(i))){
-            getPref(context).edit().let {
-                it.remove(getKey(i))
-                it.apply()
+            getPref(context).edit().run {
+                remove(getKey(i))
+                apply()
             }
             removePrevImage(i + 1)
         }

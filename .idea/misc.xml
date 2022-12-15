@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.33061594202898553" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3245" />
         <entry key="app/src/main/res/drawable/ic_back_black.xml" value="0.3245" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3245" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3245" />
         <entry key="app/src/main/res/font/roboto_light.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_apply.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/layout/activity_loading.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.5348958333333333" />
         <entry key="app/src/main/res/layout/layout_viewpager_item.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.354" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3245" />

@@ -8,7 +8,7 @@ import com.depotato.android_wallpaper_changer.databinding.ActivitySplashBinding
 import com.depotato.android_wallpaper_changer.view.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SplashActivity : com.depotato.android_wallpaper_changer.base.BaseActivity<ActivitySplashBinding, SplashViewModel>(R.layout.activity_splash) {
+class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(R.layout.activity_splash, "SplashActivity") {
 
     override val viewModel: SplashViewModel by viewModel()
 

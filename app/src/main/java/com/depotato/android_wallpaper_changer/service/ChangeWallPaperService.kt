@@ -1,6 +1,7 @@
 package com.depotato.android_wallpaper_changer.service
 
 import android.app.*
+import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -46,17 +47,15 @@ class ChangeWallPaperService : Service() {
         Thread(Runnable{
             while (true){
                 if(sharedPref.isExist(sharedPref.getKey(i))){
-                    //wallpaperManager.setBitmap(sharedPref.getImageArr(applicationContext)[++i %6])
+//                    WallpaperManager.getInstance(applicationContext).setM
                     WallpaperManager.getInstance(applicationContext).setBitmap(sharedPref.getImage(i++))
 
                     //val wall = WallpaperManager.getInstance(applicationContext)
-                    //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_SYSTEM)
-                    //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_LOCK)
-                    Log.d("TestLog", "rotate!")
+                    //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_SYSTEM) // 홈 화면
+                    //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_LOCK) // 잠금 화면
 
                     //10분마다 배경화면 변경
-                    //Test 중 10초마다 변경
-                    sleep(10000)
+                    sleep(1000 * 60 * 10)
 
                 }else {
                     i = 0
@@ -69,13 +68,15 @@ class ChangeWallPaperService : Service() {
     private fun startForegroundService(){
         Log.d("TestLog", "startForegroundService")
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-        builder.setSmallIcon(R.mipmap.ic_launcher)
-        builder.setContentTitle("Android_WallPaper_Changer")
-        builder.setContentText("Foreground 서비스 실행중")
+            .apply {
+                setSmallIcon(R.mipmap.ic_launcher)
+                setContentTitle("배경화면 로테이션")
+                setContentText("배경화면 로테이션 실행중")
+            }
 
         //PendingIntent를 사용해서 Notification을 누르면 MainActivity가 켜지게 함
         val notiIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, 0)
+        val pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, FLAG_IMMUTABLE)
         builder.setContentIntent(pendingIntent)
 
         //Notification Channel이 Oreo(SDK V.26)이후부터 생김

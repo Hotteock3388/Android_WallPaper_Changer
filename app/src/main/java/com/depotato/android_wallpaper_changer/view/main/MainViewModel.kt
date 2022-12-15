@@ -4,11 +4,14 @@ import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.Bitmap
 import android.provider.MediaStore
+import android.provider.MediaStore.Images.Media.CONTENT_TYPE
+import android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 import androidx.lifecycle.MutableLiveData
+import com.depotato.android_wallpaper_changer.base.BaseViewModel
 import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.view.adapter.MyAdapter
 
-class MainViewModel: com.depotato.android_wallpaper_changer.base.BaseViewModel() {
+class MainViewModel: BaseViewModel("MainViewModel") {
 
     var adapter = MyAdapter(ImageArrManager.imageArr.value!!)
 
@@ -24,9 +27,10 @@ class MainViewModel: com.depotato.android_wallpaper_changer.base.BaseViewModel()
 
     fun selectImagesFromMyGallery(){
         val intent = Intent(Intent.ACTION_PICK)
-        intent.type = MediaStore.Images.Media.CONTENT_TYPE
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            .apply {
+                setDataAndType(EXTERNAL_CONTENT_URI, CONTENT_TYPE)
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            }
 
         galleryIntent.value = intent
     }

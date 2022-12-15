@@ -15,12 +15,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.ext.getScopeName
 
 
-class MainActivity : com.depotato.android_wallpaper_changer.base.BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main, "MainActivity") {
 
     override val viewModel : MainViewModel by viewModel()
 
     private var backKeyPressedTime : Long = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +31,12 @@ class MainActivity : com.depotato.android_wallpaper_changer.base.BaseActivity<Ac
             binding.viewPagerMainActivity.currentItem = it
         }
 
-        viewModel.galleryIntent.observe(this, {
-            startActivityForResult(Intent.createChooser(viewModel.galleryIntent.value, "배경화면 선택"), 14423)
-        })
+        viewModel.galleryIntent.observe(this) {
+            startActivityForResult(
+                Intent.createChooser(viewModel.galleryIntent.value, "배경화면 선택"),
+                14423
+            )
+        }
 
         viewModel.saveComplete.observe(this) {
             startActivity(Intent(this, ApplyActivity::class.java))

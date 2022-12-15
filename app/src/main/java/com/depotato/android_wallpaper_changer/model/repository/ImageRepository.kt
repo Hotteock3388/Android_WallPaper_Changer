@@ -31,22 +31,27 @@ class ImageRepository(private val context: Context) : KoinComponent {
         return sharedPref.getImageArr()
     }
 
-    fun saveImageDataToSharedPref(arr: ArrayList<Bitmap>){
+    fun saveImageDataToSharedPref(arr: ArrayList<Bitmap>) {
         ImageArrManager.imageArr.value = arr
         sharedPref.saveBitmapImageArr(arr)
     }
 
-    fun saveProcessImageToSharedPref(arr: ArrayList<Bitmap>){
+    fun saveProcessImageToSharedPref(arr: ArrayList<Bitmap>) {
         sharedPref.saveBitmapImageArr(arr)
         ImageArrManager.imageArr.postValue(arr)
     }
 
     private fun createDummyData(): ArrayList<Bitmap> {
         return arrayListOf(
-                BitmapFactory.decodeResource(context.resources, R.drawable.afternoon),
-                BitmapFactory.decodeResource(context.resources, R.drawable.day),
-                BitmapFactory.decodeResource(context.resources, R.drawable.night),
+            decodeRes(R.drawable.afternoon),
+            decodeRes(R.drawable.day),
+            decodeRes(R.drawable.night)
         )
     }
+
+    private fun decodeRes(resId: Int): Bitmap {
+        return BitmapFactory.decodeResource(context.resources, resId)
+    }
+
 }
 

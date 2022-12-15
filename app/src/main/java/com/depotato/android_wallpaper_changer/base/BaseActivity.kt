@@ -10,7 +10,8 @@ import androidx.databinding.ViewDataBinding
 import com.depotato.android_wallpaper_changer.BR
 
 abstract class BaseActivity<B: ViewDataBinding, VM: BaseViewModel>(
-    @LayoutRes private val layoutResId: Int
+    @LayoutRes private val layoutResId: Int,
+    private val className: String
 ): AppCompatActivity() {
 
     lateinit var binding: B
@@ -20,15 +21,16 @@ abstract class BaseActivity<B: ViewDataBinding, VM: BaseViewModel>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, layoutResId)
-        binding.setVariable(BR.vm, viewModel)
-        binding.lifecycleOwner = this
+        binding = DataBindingUtil.setContentView<B>(this, layoutResId)
+            .apply {
+                setVariable(BR.vm, viewModel)
+                lifecycleOwner = this@BaseActivity
+            }
 
     }
 
-
     fun showToast(message: String) = Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
 
-    fun showLog(msg: String) = Log.d("TestLog", msg)
+    fun showLog(msg: String) = Log.d("TestLog_$className", msg)
 
 }
