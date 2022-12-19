@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_free_set"
+        android:enabled="true"
+        android:title="프리셋"
+        android:icon="@drawable/ic_free_set" />
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:title="홈"
+        android:icon="@drawable/ic_home" />
+    <item
+        android:id="@+id/page_option"
+        android:enabled="true"
+        android:title="옵션"
+        android:icon="@drawable/ic_option" />
+</menu>

@@ -25,6 +25,7 @@ class MainViewModel: BaseViewModel("MainViewModel") {
         vpPosition.value = 0
     }
 
+
     fun selectImagesFromMyGallery(){
         val intent = Intent(Intent.ACTION_PICK)
             .apply {

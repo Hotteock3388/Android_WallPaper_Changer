@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="20dp"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/textView_menuItem"
+        style="@style/Text_Regular_18dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:text="메뉴 아이템 이름" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_next_black" />
+
+</LinearLayout>

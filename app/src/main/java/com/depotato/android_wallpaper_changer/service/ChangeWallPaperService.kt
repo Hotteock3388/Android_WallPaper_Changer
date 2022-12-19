@@ -55,7 +55,8 @@ class ChangeWallPaperService : Service() {
                     //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_LOCK) // 잠금 화면
 
                     //10분마다 배경화면 변경
-                    sleep(1000 * 60 * 10)
+//                    sleep(1000 * 60 * 10)
+                    sleep(250)
 
                 }else {
                     i = 0

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyOptionButton">
+        <attr name="myOB_name" format="reference|string" />
+    </declare-styleable>
+
+</resources>

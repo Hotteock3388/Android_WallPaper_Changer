@@ -1,6 +1,7 @@
 package com.depotato.android_wallpaper_changer.di.module
 
 import com.depotato.android_wallpaper_changer.view.apply.ApplyViewModel
+import com.depotato.android_wallpaper_changer.view.freeset.FreeSetViewModel
 import com.depotato.android_wallpaper_changer.view.loading.LoadingViewModel
 import com.depotato.android_wallpaper_changer.view.main.MainViewModel
 import com.depotato.android_wallpaper_changer.view.splash.SplashViewModel
@@ -24,6 +25,10 @@ val activityModule = module {
 
     viewModel {
         LoadingViewModel(get())
+    }
+
+    viewModel {
+        FreeSetViewModel()
     }
 
 }

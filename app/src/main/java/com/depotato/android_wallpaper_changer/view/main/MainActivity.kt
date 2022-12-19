@@ -11,13 +11,12 @@ import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityMainBinding
 import com.depotato.android_wallpaper_changer.service.ChangeWallPaperService
 import com.depotato.android_wallpaper_changer.view.apply.ApplyActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.ext.getScopeName
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main, "MainActivity") {
 
-    override val viewModel : MainViewModel by viewModel()
+    override val viewModel : MainViewModel by inject()
 
     private var backKeyPressedTime : Long = 0
 

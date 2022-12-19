@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.model.local.SharedPref
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 
 
 class ImageRepository(private val context: Context) : KoinComponent {
