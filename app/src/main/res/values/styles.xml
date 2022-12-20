@@ -17,6 +17,13 @@
         <item name="android:textSize">18dp</item>
         <item name="android:fontFamily">@font/nsqr_regular</item></style>
 
+    <style name="Text_Regular_15dp" parent="MyText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/nsqr_regular</item></style>
+    <style name="Text_Regular_16dp" parent="MyText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/nsqr_regular</item></style>
+
     <style name="Text_Bold_16dp" parent="MyText">
         <item name="android:textSize">16dp</item>
         <item name="android:fontFamily">@font/nsqr_bold</item>

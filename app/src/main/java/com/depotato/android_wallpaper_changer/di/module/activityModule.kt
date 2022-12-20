@@ -4,6 +4,7 @@ import com.depotato.android_wallpaper_changer.view.apply.ApplyViewModel
 import com.depotato.android_wallpaper_changer.view.freeset.FreeSetViewModel
 import com.depotato.android_wallpaper_changer.view.loading.LoadingViewModel
 import com.depotato.android_wallpaper_changer.view.main.MainViewModel
+import com.depotato.android_wallpaper_changer.view.option.OptionViewModel
 import com.depotato.android_wallpaper_changer.view.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -29,6 +30,10 @@ val activityModule = module {
 
     viewModel {
         FreeSetViewModel()
+    }
+
+    viewModel {
+        OptionViewModel()
     }
 
 }

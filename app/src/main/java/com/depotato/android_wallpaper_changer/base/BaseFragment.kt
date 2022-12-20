@@ -10,6 +10,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.depotato.android_wallpaper_changer.BR
 
 abstract class BaseFragment<B : ViewDataBinding, VM: BaseViewModel>(
     @LayoutRes private val layoutResId: Int,
@@ -34,6 +35,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM: BaseViewModel>(
 
         with(binding) {
 //            setVariable(BR.fr, this@BaseFragment)
+            setVariable(BR.vm, viewModel)
             lifecycleOwner = viewLifecycleOwner
         }
 

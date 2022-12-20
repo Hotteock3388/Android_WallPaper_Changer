@@ -1,15 +1,11 @@
 package com.depotato.android_wallpaper_changer.view.freeset
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.View.OnTouchListener
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseFragment
 import com.depotato.android_wallpaper_changer.databinding.FragmentFreeSetBinding
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
-import com.depotato.android_wallpaper_changer.view.adapter.CurrentImageAdapter
 import com.depotato.android_wallpaper_changer.view.adapter.FreeSetAdapter
 import org.koin.android.ext.android.inject
 
@@ -32,6 +28,7 @@ class FreeSetFragment : BaseFragment<FragmentFreeSetBinding, FreeSetViewModel>(
             (adapter as FreeSetAdapter).submitList(
                 viewModel.dummyDataList
             )
+
         }
 
     }

@@ -4,8 +4,6 @@
     android:layout_height="40dp"
     android:gravity="center_vertical"
     android:paddingHorizontal="20dp"
-    android:clickable="true"
-    android:background="?attr/selectableItemBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView

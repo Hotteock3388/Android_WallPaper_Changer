@@ -1,10 +1,6 @@
 package com.depotato.android_wallpaper_changer.view.option
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.content.Intent
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseFragment
 import com.depotato.android_wallpaper_changer.databinding.FragmentOptionBinding
@@ -14,10 +10,20 @@ class OptionFragment : BaseFragment<FragmentOptionBinding, OptionViewModel>(R.la
 
     override val viewModel: OptionViewModel by inject()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
+    override fun initLiveData() {
 
+        with(viewModel){
+            onClickSetIntervalButton.observe(viewLifecycleOwner){
+                startActivity(Intent(requireContext(), SetIntervalActivity::class.java))
+            }
+
+            onClickSetApplyRangeButton.observe(viewLifecycleOwner){
+                startActivity(Intent(requireContext(), SetApplyRangeActivity::class.java))
+            }
+
+        }
     }
+
 
 }
