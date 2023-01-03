@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="event"
+            type="com.depotato.android_wallpaper_changer.view.adapter.viewholder.CreateFreeSetItemEventListener" />
+    </data>
+    <LinearLayout
+        android:id="@+id/linearLayout_CreateFreeSetButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:onClick="@{() -> event.onClickCreateFreeSet()}"
+        android:background="@drawable/bg_white_ripple_10dp"
+        android:elevation="6dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            style="@style/Text_Bold_20dp"
+            android:text="프리셋 생성하기"
+
+            />
+
+    </LinearLayout>
+</layout>

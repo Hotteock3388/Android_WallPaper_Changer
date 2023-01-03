@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_WallPaper_Changer">
         <activity
+            android:name=".view.free_set.CreateFreeSetActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.option.SetApplyRangeActivity"
             android:exported="false" />
         <activity

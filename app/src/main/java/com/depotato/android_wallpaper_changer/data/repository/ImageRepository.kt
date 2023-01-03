@@ -1,11 +1,11 @@
-package com.depotato.android_wallpaper_changer.model.repository
+package com.depotato.android_wallpaper_changer.data.repository
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.depotato.android_wallpaper_changer.R
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
-import com.depotato.android_wallpaper_changer.model.local.SharedPref
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.SharedPref
 import org.koin.core.component.KoinComponent
 
 

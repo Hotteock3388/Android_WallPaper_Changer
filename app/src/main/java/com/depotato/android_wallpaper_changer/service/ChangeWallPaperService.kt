@@ -9,7 +9,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.depotato.android_wallpaper_changer.R
-import com.depotato.android_wallpaper_changer.model.local.SharedPref
+import com.depotato.android_wallpaper_changer.data.local.SharedPref
 import com.depotato.android_wallpaper_changer.view.main.MainActivity
 import java.lang.Thread.sleep
 

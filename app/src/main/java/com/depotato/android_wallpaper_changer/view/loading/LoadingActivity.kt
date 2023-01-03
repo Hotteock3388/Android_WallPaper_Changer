@@ -7,12 +7,11 @@ import android.graphics.Bitmap
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityLoadingBinding
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.service.ChangeWallPaperService
 import com.depotato.android_wallpaper_changer.view.main.MainActivity
 import org.koin.android.ext.android.inject

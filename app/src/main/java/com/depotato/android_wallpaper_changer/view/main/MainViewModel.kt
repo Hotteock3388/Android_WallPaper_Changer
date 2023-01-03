@@ -8,7 +8,7 @@ import android.provider.MediaStore.Images.Media.CONTENT_TYPE
 import android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 import androidx.lifecycle.MutableLiveData
 import com.depotato.android_wallpaper_changer.base.BaseViewModel
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.view.adapter.MyAdapter
 
 class MainViewModel: BaseViewModel("MainViewModel") {

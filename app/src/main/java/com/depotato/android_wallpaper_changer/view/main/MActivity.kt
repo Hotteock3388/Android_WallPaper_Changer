@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityMactivityBinding
-import com.depotato.android_wallpaper_changer.view.freeset.FreeSetFragment
+import com.depotato.android_wallpaper_changer.view.free_set.FreeSetFragment
 import com.depotato.android_wallpaper_changer.view.option.OptionFragment
 import org.koin.android.ext.android.inject
 
