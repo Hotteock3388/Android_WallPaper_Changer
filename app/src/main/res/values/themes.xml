@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/mainPurple</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- Customize your theme here. -->
 
         <item name="windowActionBar">false</item>
@@ -96,6 +96,15 @@
         <item name="android:fontFamily">@font/roboto_light</item>
         <item name="android:textSize">18dp</item>
     </style>
+
+    <style name="Theme.Android_WallPaper_Changer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Android_WallPaper_Changer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Android_WallPaper_Changer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--    <item name=""></item>     -->
 

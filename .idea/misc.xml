@@ -4,17 +4,45 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.33061594202898553" />
+        <entry key="app/src/main/res/drawable-v24/bg_blank_ripple_10dp.xml" value="0.258" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3245" />
+        <entry key="app/src/main/res/drawable/bg_black_ripple.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/bg_current_image.xml" value="0.3445" />
+        <entry key="app/src/main/res/drawable/bg_white_black_stroke_ripple.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/bg_white_radius_top_10dp.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/bg_white_redge_10dp.xml" value="0.3445" />
+        <entry key="app/src/main/res/drawable/bg_white_ripple_10dp.xml" value="0.342" />
         <entry key="app/src/main/res/drawable/ic_back_black.xml" value="0.3245" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3245" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3245" />
+        <entry key="app/src/main/res/drawable/ic_right.xml" value="0.2165" />
+        <entry key="app/src/main/res/drawable/my_custom_seekbar.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/my_seekbar_thumb.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/redge_15dp.xml" value="0.3455" />
+        <entry key="app/src/main/res/drawable/selector_radio_button.xml" value="0.389" />
         <entry key="app/src/main/res/font/roboto_light.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_apply.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/layout/activity_create_free_set.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_loading.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/layout/activity_mactivity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_set_apply_range.xml" value="0.7338429464906184" />
+        <entry key="app/src/main/res/layout/activity_set_interval.xml" value="0.55" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.5348958333333333" />
+        <entry key="app/src/main/res/layout/bg_blank_ripple_10dp.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_free_set.xml" value="0.3411458333333333" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_option.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_set_interval.xml" value="0.5132192846034215" />
+        <entry key="app/src/main/res/layout/layout_create_free_set_button.xml" value="0.21732522796352582" />
+        <entry key="app/src/main/res/layout/layout_create_freeset_button.xml" value="0.5489583333333333" />
+        <entry key="app/src/main/res/layout/layout_current_image_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/layout_free_set_image_item.xml" value="0.34010416666666665" />
+        <entry key="app/src/main/res/layout/layout_free_set_item.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/layout_option_button.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/layout_viewpager_item.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.453125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.354" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3245" />
       </map>
@@ -26,5 +54,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

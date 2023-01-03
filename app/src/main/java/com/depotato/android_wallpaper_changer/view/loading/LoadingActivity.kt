@@ -11,17 +11,16 @@ import androidx.core.content.ContextCompat
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityLoadingBinding
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.service.ChangeWallPaperService
 import com.depotato.android_wallpaper_changer.view.main.MainActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.ext.getScopeName
+import org.koin.android.ext.android.inject
 import kotlin.system.measureNanoTime
 
 
 class LoadingActivity : BaseActivity<ActivityLoadingBinding, LoadingViewModel>(R.layout.activity_loading, "LoadingActivity") {
 
-    override val viewModel: LoadingViewModel by viewModel()
+    override val viewModel: LoadingViewModel by inject()
 
     var imageProcessing = false
 
@@ -59,7 +58,7 @@ class LoadingActivity : BaseActivity<ActivityLoadingBinding, LoadingViewModel>(R
         val manager: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
         val serviceClass = ChangeWallPaperService()
-        showLog("WPS_ScopmeName = ${serviceClass.getScopeName()}")
+//        showLog("WPS_ScopmeName = ${serviceClass.getScopeName()}")
 
         for (service in manager.getRunningServices(Integer.MAX_VALUE)){
             if(service.service.className == "ChangeWallPaperService"){

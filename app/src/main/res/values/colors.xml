@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="disabledGray">#ADB5BD</color>
 
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#b3abe0</color>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.depotato.android_wallpaper_changer.view.option.OptionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".view.option.OptionFragment">
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/Text_Page_title"
+            android:text="설정"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.depotato.android_wallpaper_changer.customview.MyOptionButton
+            android:id="@+id/myOptionButton_setInterval"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            app:myOB_name="배경화면 변경 간격 설정"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{() -> vm.openIntervalFragment()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView6"/>
+
+        <com.depotato.android_wallpaper_changer.customview.MyOptionButton
+            android:id="@+id/myOptionButton_applyRange"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:myOB_name="배경화면/잠금화면 적용 여부 설정"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{() -> vm.openApplyRangeFragment()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myOptionButton_setInterval" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="MyText_Bold" parent="MyText">
+        <item name="android:fontFamily">@font/nsqr_bold</item>
+    </style>
+    <style name="MyText_Regular" parent="MyText">
+        <item name="android:fontFamily">@font/nsqr_regular</item>
+    </style>
+
+    <style name="Text_Page_title" parent="MyText_Bold">
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+    </style>
+
+    <style name="Text_Regular_10dp" parent="MyText_Regular">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="Text_Regular_15dp" parent="MyText_Regular">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="Text_Regular_16dp" parent="MyText_Regular">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="Text_Regular_18dp" parent="MyText_Regular">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="Text_Bold_16dp" parent="MyText_Bold">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="Text_Bold_20dp" parent="MyText_Bold">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+
+    <style name="FreeSetOptionNameButton" parent="Text_Regular_15dp">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_white_black_stroke_ripple</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">@color/disabledGray</item>
+    </style>
+
+    <style name="FreeSetOptionValueButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingVertical">10dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_white_ripple_10dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+</resources>

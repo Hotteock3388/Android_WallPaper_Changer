@@ -1,10 +1,8 @@
 package com.depotato.android_wallpaper_changer.view.apply
 
-import android.graphics.Bitmap
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.depotato.android_wallpaper_changer.base.BaseViewModel
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.view.adapter.MyAdapter
 
 class ApplyViewModel: BaseViewModel("ApplyViewModel") {

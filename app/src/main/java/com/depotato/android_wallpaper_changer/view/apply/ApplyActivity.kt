@@ -5,13 +5,13 @@ import android.os.Bundle
 import com.depotato.android_wallpaper_changer.R
 import com.depotato.android_wallpaper_changer.base.BaseActivity
 import com.depotato.android_wallpaper_changer.databinding.ActivityApplyBinding
-import com.depotato.android_wallpaper_changer.model.local.ImageArrManager
+import com.depotato.android_wallpaper_changer.data.local.ImageArrManager
 import com.depotato.android_wallpaper_changer.view.loading.LoadingActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
 class ApplyActivity : BaseActivity<ActivityApplyBinding, ApplyViewModel>(R.layout.activity_apply, "ApplyActivity") {
 
-    override val viewModel: ApplyViewModel by viewModel()
+    override val viewModel: ApplyViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,4 +1,4 @@
-package com.depotato.android_wallpaper_changer.model.local
+package com.depotato.android_wallpaper_changer.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

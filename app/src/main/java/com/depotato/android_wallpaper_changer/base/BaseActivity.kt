@@ -22,15 +22,22 @@ abstract class BaseActivity<B: ViewDataBinding, VM: BaseViewModel>(
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView<B>(this, layoutResId)
-            .apply {
-                setVariable(BR.vm, viewModel)
-                lifecycleOwner = this@BaseActivity
-            }
+        binding.setVariable(BR.vm, viewModel)
+        binding.lifecycleOwner = this
 
+        init()
+        initLiveData()
+        initListener()
     }
 
-    fun showToast(message: String) = Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
 
+    open fun init() {}
+
+    open fun initLiveData() {}
+
+    open fun initListener() {}
+
+    fun showToast(message: String) = Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     fun showLog(msg: String) = Log.d("TestLog_$className", msg)
 
 }

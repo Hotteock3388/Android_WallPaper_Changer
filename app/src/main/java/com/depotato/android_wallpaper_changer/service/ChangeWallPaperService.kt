@@ -9,7 +9,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.depotato.android_wallpaper_changer.R
-import com.depotato.android_wallpaper_changer.model.local.SharedPref
+import com.depotato.android_wallpaper_changer.data.local.SharedPref
 import com.depotato.android_wallpaper_changer.view.main.MainActivity
 import java.lang.Thread.sleep
 
@@ -55,7 +55,8 @@ class ChangeWallPaperService : Service() {
                     //wall.setBitmap(sharedPref.getImage(i++), null, false, WallpaperManager.FLAG_LOCK) // 잠금 화면
 
                     //10분마다 배경화면 변경
-                    sleep(1000 * 60 * 10)
+//                    sleep(1000 * 60 * 10)
+                    sleep(250)
 
                 }else {
                     i = 0

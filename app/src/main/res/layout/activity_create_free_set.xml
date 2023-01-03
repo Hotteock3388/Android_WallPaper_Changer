@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="currentMenu"
+            type="androidx.lifecycle.LiveData&lt;String>" />
+        
+        <variable
+            name="freeSetOptionData"
+            type="androidx.lifecycle.LiveData&lt;com.depotato.android_wallpaper_changer.entity.dataclass.FreeSetOption>" />
+
+        <import type="android.view.View"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.free_set.CreateFreeSetActivity">
+
+
+        <EditText
+            android:id="@+id/editText"
+            style="@style/Text_Regular_15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_white_redge_10dp"
+            android:elevation="6dp"
+            android:hint="프리셋 이름을 입력해주세요"
+            android:paddingStart="20dp"
+            android:maxLength="20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView_save_freeSet"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:elevation="7dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="@+id/editText"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuLayout_backgroundColor"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_white_radius_top_10dp"
+            android:elevation="6dp"
+            android:visibility="@{currentMenu == `color`? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuLayout_size"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_white_radius_top_10dp"
+            android:elevation="6dp"
+            android:visibility="@{currentMenu == `size`? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_size"
+                style="@style/Text_Regular_15dp"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(freeSetOptionData.size)}"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <SeekBar
+                android:id="@+id/seekBar_size"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginBottom="14dp"
+                android:elevation="7dp"
+                android:max="200"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progress="100"
+                android:splitTrack="false"
+                android:progressDrawable="@drawable/my_custom_seekbar"
+                android:thumb="@drawable/my_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/white"
+                android:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/seekBar_size"
+                app:layout_constraintEnd_toEndOf="@+id/seekBar_size"
+                app:layout_constraintStart_toStartOf="@+id/seekBar_size"
+                app:layout_constraintTop_toTopOf="@+id/seekBar_size" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuLayout_location"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_white_radius_top_10dp"
+            android:elevation="6dp"
+            android:visibility="@{currentMenu == `location`? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_location"
+                style="@style/Text_Regular_15dp"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(freeSetOptionData.location)}"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <SeekBar
+                android:id="@+id/seekBar_location"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginBottom="14dp"
+                android:elevation="7dp"
+                android:max="200"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progress="100"
+                android:splitTrack="false"
+                android:progressDrawable="@drawable/my_custom_seekbar"
+                android:thumb="@drawable/my_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/white"
+                android:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/seekBar_location"
+                app:layout_constraintEnd_toEndOf="@+id/seekBar_location"
+                app:layout_constraintStart_toStartOf="@+id/seekBar_location"
+                app:layout_constraintTop_toTopOf="@+id/seekBar_location" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuLayout_option"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_white_radius_top_10dp"
+            android:elevation="6dp"
+            android:visibility="@{currentMenu == `option`? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <LinearLayout style="@style/FreeSetOptionValueButton"
+                android:id="@+id/linearLayout3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_match_vertical" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/Text_Regular_15dp"
+                    android:text="맞춤"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView11"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView12" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/FreeSetOptionValueButton"
+                android:id="@+id/linearLayout5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_default" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/Text_Regular_15dp"
+                    android:text="기본"
+                    app:layout_constraintEnd_toStartOf="@+id/textView13"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/FreeSetOptionValueButton"
+                android:id="@+id/linearLayout4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_repeat" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/Text_Regular_15dp"
+                    android:text="반복"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView13" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuLayout_angle"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_white_radius_top_10dp"
+            android:elevation="6dp"
+            android:visibility="@{currentMenu == `angle`? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_angle"
+                style="@style/Text_Regular_15dp"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(freeSetOptionData.angle)}"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar_angle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <SeekBar
+                android:id="@+id/seekBar_angle"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginBottom="14dp"
+                android:elevation="7dp"
+                android:max="200"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progress="100"
+                android:splitTrack="false"
+                android:progressDrawable="@drawable/my_custom_seekbar"
+                android:thumb="@drawable/my_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/white"
+                android:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/seekBar_angle"
+                app:layout_constraintEnd_toEndOf="@+id/seekBar_angle"
+                app:layout_constraintStart_toStartOf="@+id/seekBar_angle"
+                app:layout_constraintTop_toTopOf="@+id/seekBar_angle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_backgroundColor"
+                style="@style/FreeSetOptionNameButton"
+                android:text="배경색" />
+
+            <TextView
+                android:id="@+id/textView_imageSize"
+                style="@style/FreeSetOptionNameButton"
+                android:text="크기" />
+
+            <TextView
+                android:id="@+id/textView_imageLocation"
+                style="@style/FreeSetOptionNameButton"
+                android:text="위치" />
+
+            <TextView
+                android:id="@+id/textView_imageSizingOption"
+                style="@style/FreeSetOptionNameButton"
+                android:text="옵션" />
+
+            <TextView
+                android:id="@+id/textView_imageAngle"
+                style="@style/FreeSetOptionNameButton"
+                android:text="각도" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
